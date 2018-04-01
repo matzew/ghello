@@ -24,7 +24,7 @@ jobs:
       - run: make build_linux
 
   docker_push_master:
-    working_directory: /go/src/github.com/aerogear/ups-config-operator
+    working_directory: /go/src/github.com/matzew/ghello
     docker:
       - image: circleci/golang:1.9
     steps:
@@ -39,7 +39,7 @@ jobs:
       - run: make docker_push_latest
 
   docker_release:
-    working_directory: /go/src/github.com/aerogear/ups-config-operator
+    working_directory: /go/src/github.com/matzew/ghello
     docker:
       - image: circleci/golang:1.9
     steps:
