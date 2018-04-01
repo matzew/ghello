@@ -1,4 +1,4 @@
-BINARY ?= go-hello-server
+BINARY ?= ghello
 APP_NAME = ghello
 DOCKER_LATEST_TAG = docker.io/matzew/$(APP_NAME):latest
 DOCKER_MASTER_TAG = docker.io/matzew/$(APP_NAME):master
