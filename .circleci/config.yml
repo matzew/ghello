@@ -12,9 +12,12 @@ jobs:
     #### expecting it in the form of
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/aerogear/ups-config-operator
+    working_directory: /go/src/github.com/matzew/ghello
     steps:
       - checkout
+      - run:
+          name: Install Glide
+          command: curl https://glide.sh/get | sh
       # specify any bash command here prefixed with `run: `
       #- run: go get github.com/Masterminds/glide
       #- run: glide install --strip-vendor
