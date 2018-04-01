@@ -1,9 +1,9 @@
 BINARY ?= go-hello-server
 APP_NAME = ghello
-DOCKER_LATEST_TAG = docker.io/natzew/$(APP_NAME):latest
-DOCKER_MASTER_TAG = docker.io/natzew/$(APP_NAME):master
+DOCKER_LATEST_TAG = docker.io/matzew/$(APP_NAME):latest
+DOCKER_MASTER_TAG = docker.io/matzew/$(APP_NAME):master
 RELEASE_TAG ?= $(CIRCLE_TAG)
-DOCKER_RELEASE_TAG = natzew/$(APP_NAME):$(RELEASE_TAG)
+DOCKER_RELEASE_TAG = matzew/$(APP_NAME):$(RELEASE_TAG)
 
 .PHONY: generate
 generate:
