@@ -49,6 +49,7 @@ jobs:
           command: curl https://glide.sh/get | sh
       - run: make setup
       - setup_remote_docker
+      - run: make build_linux
       - run: make docker_build_release
       - run: make docker_push_release
 
