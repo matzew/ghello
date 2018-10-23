@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
 
+	"github.com/cloudevents/sdk-go/v01"
 	"github.com/matzew/ghello/pkg/config"
 )
 
@@ -13,13 +13,21 @@ func helloWorld(w http.ResponseWriter, r *http.Request) {
 }
 
 func postLogger(w http.ResponseWriter, r *http.Request) {
-	//	fmt.Printf("The type is: %T \n", r.Body)
 
-	body, err := ioutil.ReadAll(r.Body)
+	marshaller := v01.NewDefaultHTTPMarshaller()
+	// req is *http.Request
+	event, err := marshaller.FromRequest(r)
 	if err != nil {
 		panic(err)
+		//panic("Unable to parse event from http Request: " + err.String())
 	}
-	fmt.Println(string(body))
+
+	val, ok := event.Get("eventType")
+
+	fmt.Printf("eventType: %s \n", val)
+	if ok == false {
+		panic("should have eventtype...")
+	}
 }
 
 func main() {
