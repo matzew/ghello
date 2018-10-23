@@ -1,4 +1,8 @@
-hash: a754b5ab463f9f3155e5b28c6db5e9f1c7b986a98fe85b7d6b80d4ef2f827e56
-updated: 2018-04-01T18:38:43.68114276+02:00
-imports: []
+hash: 84e0aa4e25a2cdcf5d24643dda384e20ab9e10613fb63192e5ee3c0c780128f4
+updated: 2018-10-23T11:31:31.183511083+02:00
+imports:
+- name: github.com/cloudevents/sdk-go
+  version: 17c1655cb929797454995e53fd412c8ac55a7475
+  subpackages:
+  - v01
 testImports: []
