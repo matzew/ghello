@@ -1,5 +1,5 @@
 BINARY ?= ghello
-APP_NAME = error-app
+APP_NAME = not-found-app
 DOCKER_LATEST_TAG = docker.io/matzew/$(APP_NAME):latest
 DOCKER_MASTER_TAG = docker.io/matzew/$(APP_NAME):master
 RELEASE_TAG ?= $(CIRCLE_TAG)

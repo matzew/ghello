@@ -12,10 +12,11 @@ func helloWorld(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("kne-foo", "yo...")
 	w.Header().Add("kne-bar", "blup...")
-	w.WriteHeader(http.StatusUnprocessableEntity)
+	w.WriteHeader(http.StatusNotFound)
 	//if reqBytes, err := httputil.DumpRequest(r, true); err == nil {
 	log.Print("Got request")
-	w.Write([]byte("Bad error..."))
+	w.Write([]byte("<!doctype html>\n<html>\n<head>\n    <title>Error Page(tm)</title>\n</head>\n<body>\n<p>Quoth the server, 404!\n</body></html>"))
+
 	//} else {
 	//	log.Printf("Error dumping the request: %+v :: %+v", err, r)
 	//}
