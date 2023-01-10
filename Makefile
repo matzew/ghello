@@ -15,7 +15,7 @@ setup:
 
 .PHONY: build_linux
 build_linux:
-	env GOOS=linux GOARCH=amd64 go build -o $(BINARY) ./cmd/server/hello_server.go
+	env GOOS=linux GOARCH=amd64 go build -o $(BINARY) ./cmd/server/main.go
 
 .PHONY: docker_build
 docker_build: build_linux

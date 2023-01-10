@@ -9,17 +9,16 @@ import (
 func helloWorld(w http.ResponseWriter, r *http.Request) {
 	// Simulate at least a bit of processing time.
 	time.Sleep(100 * time.Millisecond)
+	log.Print("Got request for processing...")
 
-	w.Header().Add("kne-foo", "yo...")
-	w.Header().Add("kne-bar", "blup...")
+	// We abort the request and tell client that it
+	// was semantically not correct...
+	w.Header().Add("kne-workerprocessor", "Semantic error with request")
+	w.Header().Add("kne-workerhint", "Patch your data model")
 	w.WriteHeader(http.StatusUnprocessableEntity)
-	//if reqBytes, err := httputil.DumpRequest(r, true); err == nil {
-	log.Print("Got request")
-	w.Write([]byte("Bad error..."))
-	//} else {
-	//	log.Printf("Error dumping the request: %+v :: %+v", err, r)
-	//}
 
+	// ship it!
+	w.Write([]byte("Unable to process request!"))
 }
 
 func main() {

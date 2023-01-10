@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: error-sender
+spec:
+  selector:
+    app: error-sender
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: error-sender
+      name: http
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: error-sender
+  labels:
+    app: error-sender
+spec:
+  containers:
+  - name: error-sender
+    image: ko://github.com/matzew/ghello/cmd/server
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+      name: error-sender
